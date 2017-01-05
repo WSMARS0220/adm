@@ -1,0 +1,14 @@
+{
+  "name": "always_do_more",
+  "version": "1.0.0",
+  "description": "the official website of Always Do More(ADM) Body Shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WSMARS",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
