@@ -4,7 +4,7 @@ export default function renderFullPage (componentHTML) {
     <html>
       <head>
         <meta charset="utf-8">
-        <title>Nebula</title>
+        <title>ADM</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
         <link rel="shortcut icon" type="image/png" href="http://tfwiki.net/mediawiki/images2/f/fe/Symbol_autobot_reg.png"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

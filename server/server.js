@@ -22,7 +22,7 @@ let auth = (req, res, next) => {
     return unauthorized(res)
   }
 
-  if (user.name === 'nebula' && user.pass === 'nebula') {
+  if (user.name === 'adm' && user.pass === 'adm') {
     return next()
   } else {
     return unauthorized(res)
