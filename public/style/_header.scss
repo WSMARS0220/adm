@@ -1,0 +1,60 @@
+$fontColor: #edf2f4;
+$backgroundColor: #2b2d42;
+
+#header {
+  background: $backgroundColor;
+  padding: 15px 30px;
+  border-radius: 0px;
+  color: $fontColor;
+  margin: 0;
+}
+
+.header-a {
+  color: red;
+  text-decoration: none;
+  border-bottom: 1px solid $backgroundColor;
+}
+
+.header-a:hover {
+  text-decoration: underline;
+  border-bottom-color: red;
+}
+
+#hamburger-toggle-ul {
+  background: $backgroundColor;
+  width: 100%;
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  padding: 0;
+}
+
+.header-a-h {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header-a-h:hover {
+  background: $fontColor;
+  color: $backgroundColor;
+}
+
+#header-a-h-1 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid $fontColor;
+}
+
+#header-a-h-2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid $fontColor;
+  border-bottom: 1px solid $fontColor;
+}
+
+#header-a-h-3 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $fontColor;
+}

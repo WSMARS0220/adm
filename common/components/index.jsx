@@ -5,7 +5,6 @@ import Header from './header';
 import Footer from './footer'
 
 export default class App extends Component {
-
   render() {
     // for ie 11 ...
     ES6Promise.polyfill();

@@ -1,0 +1,20 @@
+@import "header";
+
+$fontColor: #edf2f4;
+$backgroundColor: #2b2d42;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  color: $fontColor;
+  overflow: scroll;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {color: $fontColor !important; }      /* unvisited link */
+a:visited {color: $fontColor !important; }  /* visited link */
+a:hover {color: $fontColor !important; }  /* mouse over link */
+a:active {color: $fontColor !important; }

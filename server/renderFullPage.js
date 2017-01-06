@@ -6,6 +6,7 @@ export default function renderFullPage (componentHTML) {
         <meta charset="utf-8">
         <title>ADM</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/style/main.css">
         <link rel="shortcut icon" type="image/png" href="http://tfwiki.net/mediawiki/images2/f/fe/Symbol_autobot_reg.png"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
