@@ -1,3 +1,32 @@
+$fontColor: #edf2f4;
+$backgroundColor: #2b2d42;
+
 #services-container {
-  
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 450px;
+  padding: 60px 15px;
+  background: $backgroundColor;
+}
+
+#services-head-title {
+  width: 100%;
+  text-align: center;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 36px;
+  padding-bottom: 30px;
+  margin: 0;
+}
+
+#services-div-container {
+  height: auto;
+  min-height: 260px;
+}
+
+.services-div {
+  background: grey;
+  height: 260px;
+  border: 1px solid white;
 }
