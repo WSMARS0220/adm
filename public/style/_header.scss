@@ -3,15 +3,16 @@ $backgroundColor: #2b2d42;
 
 #header {
   background: $backgroundColor;
-  padding: 15px 30px;
+  padding: 15px 15px;
   border-radius: 0px;
   color: $fontColor;
   margin: 0;
+  border: none;
 }
 
 .header-a {
   font-family: Roboto;
-  font-weigh: bold;
+  font-weight: bold;
   font-size: 20px;
   text-decoration: none;
   border-bottom: 1px solid $backgroundColor;
@@ -29,6 +30,7 @@ $backgroundColor: #2b2d42;
   top: 80px;
   left: 0px;
   padding: 0;
+  z-index: 5;
 }
 
 .header-a-h {
