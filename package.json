@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "description": "the official website of Always Do More(ADM) Body Shop",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "WSMARS",
   "license": "ISC",
   "scripts": {
     "start": "NODE_ENV=production NODE_PATH=$NODE_PATH:./common node --harmony .",
     "dev": "NODE_PATH=$NODE_PATH:./common node --harmony .",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "build": "NODE_ENV=production webpack -p --config webpack.prod.config.js"
   },
   "dependencies": {
     "babel": "^6.5.2",
