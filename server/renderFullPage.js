@@ -20,7 +20,6 @@ export default function renderFullPage (componentHTML) {
       <body>
         <div id="app">${componentHTML}</div>
         <script type="application/javascript" src="/bundle.js"></script>
-        <canvas id="canvas"></canvas>
       </body>
     </html>
   `
