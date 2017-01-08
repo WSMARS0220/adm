@@ -1,11 +1,13 @@
 import express from 'express'
 import colors from 'colors'
 import basicAuth from 'basic-auth'
+import bodyParser from 'body-parser'
 // use instead of deprecated createLocation.
 import createMemoryHistory from 'react-router/lib/createMemoryHistory'
 
 import routesConfig from './routes'
 import matchFunc from './match'
+import handleEmailSend from './nodemailerConfig'
 // create the inital app, which is exported and used by index.js
 const app = express()
 
@@ -36,6 +38,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 // for production...not even sure if this works. Also need a build command so we aren't interpreting jsx on the fly.
 app.use(express.static('public'))
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
+app.post('/email', handleEmailSend);
 
 app.use(auth, (req, res) => {
   // create location for match to use.
