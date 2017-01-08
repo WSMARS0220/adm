@@ -48,7 +48,8 @@ export default class Inquiry extends Component {
       processData: false,
       data: JSON.stringify(this.state),
       success: function(response) {
-        console.log(response)
+        console.log(response.message)
+
       },
       error: function(error) {
           console.log(error)
