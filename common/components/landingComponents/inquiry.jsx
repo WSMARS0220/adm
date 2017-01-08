@@ -30,6 +30,7 @@ export default class Inquiry extends Component {
   }
 
   handleFileUpload(e) {
+    // upload limit is 25mb
     if (e.target.files.length <= 9 && e.target.files.length > 0) {
       let temp = []
       for (let i=0;i<e.target.files.length;i++) {
@@ -68,7 +69,6 @@ export default class Inquiry extends Component {
           <div id='inquiry-left-contianer' className='col'></div>
           <div id='inquiry-right-contianer' className='col'></div>
         </form>
-        <img id="img" height="150"/>
       </div>
     )
   }

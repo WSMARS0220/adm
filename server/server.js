@@ -38,9 +38,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 // for production...not even sure if this works. Also need a build command so we aren't interpreting jsx on the fly.
 app.use(express.static('public'))
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({limit: '25mb'}));
+app.use(bodyParser.urlencoded({limit: '25mb', extended: true}));
 
+// email sender
 app.post('/email', handleEmailSend);
 
 app.use(auth, (req, res) => {

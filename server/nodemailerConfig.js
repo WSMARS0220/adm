@@ -5,27 +5,33 @@ export default function handleEmailSend(req, res) {
     host: 'smtp.gmail.com',
     port: 465,
     auth: {
-      user: 'mszhang0220@gmail.com',
-      pass: 'Asdfg456@'
+      user: 'admautobodyshop@gmail.com',
+      pass: 'james1987'
     },
   })
   let text = 'Hello world from \n\n' + req.body.name;
 
   let mailOptions = {
-    from: 'mszhang0220@gmail.com', // sender address
-    to: req.body.email, // list of receivers
-    cc: 'mszhang0220@gmail.com',
+    from: 'admautobodyshop@gmail.com', // sender address
+    to: 'zhang_mingshuo@hotmail.com', // list of receivers
+    cc: 'admautobodyshop@gmail.com',
     subject: 'Email Example', // Subject line
-    text: text //, // plaintext body
-    // html: '<b>Hello world âœ”</b>' // You can choose to send an HTML body instead
+    text: text, //, // plaintext body
+    attachments: [
+      {
+        filename: 'temp.png',
+        path: req.body.files[0]
+      }
+    ]
+    // html: '<img src='+req.body.files[0]+'/>' // You can choose to send an HTML body instead
   }
 
   transporter.sendMail(mailOptions, function(error, info){
     if(error){
       console.log(error)
-      res.json({yo: 'error'})
+      res.json({error: 'error'})
     } else {
-      console.log('Message sent: ' + info.response)
+      console.log('Message sent to ' + req.body.email + ': ' + info.response)
       res.json({message: 'Email has sent to ' + req.body.email + '...'})
     }
   })
