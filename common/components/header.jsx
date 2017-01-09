@@ -64,9 +64,9 @@ class Toggle extends Component {
     if (this.state.hamburgerToggle){
       return (
         <ul id='hamburger-toggle-ul'>
-          <li id='header-a-h-1' className='header-a-h'>About</li>
-          <li id='header-a-h-2' className='header-a-h'>Services</li>
-          <li id='header-a-h-3' className='header-a-h'>Inquiry</li>
+          <a href='#banner'><li id='header-a-h-1' className='header-a-h'>About</li></a>
+          <a href='#services'><li id='header-a-h-2' className='header-a-h'>Services</li></a>
+          <a href='#inquiry'><li id='header-a-h-3' className='header-a-h'>Inquiry</li></a>
         </ul>
       )
     }
