@@ -5,7 +5,7 @@ export default class Inquiry extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'Michael',
+      name: '',
       phone: '',
       email: '',
       year: '',
@@ -13,8 +13,11 @@ export default class Inquiry extends Component {
       model: '',
       color: '',
       vin: '',
-      comment: '',
-      files: []
+      comments: '',
+      files: [],
+      filesName: [],
+      fileSizeCount: 0,
+      uploadMessage: null,
     }
   }
 
@@ -23,20 +26,79 @@ export default class Inquiry extends Component {
     reader.onload = (e) => {
       // document.getElementById("img").src       = e.target.result
       this.setState({
-        files: this.state.files.concat(e.target.result)
+        files: this.state.files.concat(e.target.result),
+        filesName: this.state.filesName.concat(imgFile.name),
+        fileSizeCount: this.state.fileSizeCount+imgFile.size
       })
+      console.log('current files length: ', this.state.filesName.length)
     }
     reader.readAsDataURL(imgFile)
   }
 
   handleFileUpload(e) {
     // upload limit is 25mb
-    if (e.target.files.length <= 9 && e.target.files.length > 0) {
-      let temp = []
+    let sizeCount = this.state.fileSizeCount
+    for (let i=0;i<e.target.files.length;i++) {
+      sizeCount+=e.target.files[i].size
+    }
+    console.log('current files size: ', sizeCount/1000000)
+    if (sizeCount/1000000 > 25) {
+      this.setState({
+        files: [],
+        filesName: [],
+        fileSizeCount: 0,
+        uploadMessage: 'Please upload photos again, total files cannot be larger than 25MB!'
+      })
+    } else {
       for (let i=0;i<e.target.files.length;i++) {
         this.getBase64Image(e.target.files[i])
       }
     }
+  }
+
+  handleNameOnChange(e) {
+    e.preventDefault()
+    this.setState({name: e.target.value})
+  }
+
+  handleEmailOnChange(e) {
+    e.preventDefault()
+    this.setState({email: e.target.value})
+  }
+
+  handleMakeOnChange(e) {
+    e.preventDefault()
+    this.setState({make: e.target.value})
+  }
+
+  handleColorOnChange(e) {
+    e.preventDefault()
+    this.setState({color: e.target.value})
+  }
+
+  handlePhoneOnChange(e) {
+    e.preventDefault()
+    this.setState({phone: e.target.value})
+  }
+
+  handleYearOnChange(e) {
+    e.preventDefault()
+    this.setState({year: e.target.value})
+  }
+
+  handleModelOnChange(e) {
+    e.preventDefault()
+    this.setState({model: e.target.value})
+  }
+
+  handleVinOnChange(e) {
+    e.preventDefault()
+    this.setState({vin: e.target.value})
+  }
+
+  handleCommentsOnChange(e) {
+    e.preventDefault()
+    this.setState({comments: e.target.value})
   }
 
   handleSubmit(e) {
@@ -59,15 +121,70 @@ export default class Inquiry extends Component {
     })
   }
 
+  renderFileLabel() {
+    if (this.state.files.length > 1) {
+      return this.state.files.length + ' Files Selecetd'
+    } else if (this.state.files.length == 1) {
+      return '1 File Selecetd'
+    } else {
+      return 'Choose a file'
+    }
+  }
+
+  renderFileNames() {
+    if (this.state.filesName.length > 0 && !this.state.uploadMessage) {
+      console.log(this.state.filesName)
+      return (
+        <ul>
+          {this.state.filesName.map((name, idx)=>{
+            return <li className='file-name' key={idx}>{name}</li>
+          })}
+        </ul>
+      )
+    }
+    console.log('null')
+    return null
+  }
+
   render() {
     return (
       <div id='inquiry-container' className='container'>
         <h2 id='inquiry-head-title'>Inquiry</h2>
-        <form id='inquiry-div-container' className='row' onSubmit={this.handleSubmit.bind(this)}>
-          <input type='file' onChange={this.handleFileUpload.bind(this)} accept="image/*" multiple/>
-          <button>Submit</button>
-          <div id='inquiry-left-contianer' className='col'></div>
-          <div id='inquiry-right-contianer' className='col'></div>
+        <form id='inquiry-div-container' onSubmit={this.handleSubmit.bind(this)}>
+          <div id='inquiry-left-contianer' className='col-md-6'>
+            <div id='inquiry-left-contianer-left'>
+              <h4>Name: </h4>
+              <input className='info-input' onChange={this.handleNameOnChange.bind(this)} required/>
+              <h4>Email: </h4>
+              <input className='info-input' onChange={this.handleEmailOnChange.bind(this)} required/>
+              <h4>Make: </h4>
+              <input className='info-input' onChange={this.handleMakeOnChange.bind(this)} required/>
+              <h4>Color: </h4>
+              <input className='info-input' onChange={this.handleColorOnChange.bind(this)} required/>
+            </div>
+            <div id='inquiry-left-contianer-right'>
+              <h4>Phone: </h4>
+              <input className='info-input' onChange={this.handlePhoneOnChange.bind(this)} required/>
+              <h4>Year: </h4>
+              <input className='info-input' onChange={this.handleYearOnChange.bind(this)} required/>
+              <h4>Model: </h4>
+              <input className='info-input' onChange={this.handleModelOnChange.bind(this)} required/>
+              <h4>VIN#: </h4>
+              <input className='info-input' onChange={this.handleVinOnChange.bind(this)} required/>
+            </div>
+          </div>
+          <div id='inquiry-right-contianer' className='col-md-6'>
+            <h4>Files: </h4>
+            <input type="file" name="file" id="file" className="inputfile" onClick={()=>{this.setState({uploadMessage: null})}} onChange={this.handleFileUpload.bind(this)} accept="image/*" multiple/>
+            <label htmlFor="file">{this.renderFileLabel()}</label>
+            <div id="file-name-container">
+              {this.renderFileNames()}
+              <p>{this.state.uploadMessage}</p>
+            </div>
+            <h4>Comments: </h4>
+            <textArea id='comments' onChange={this.handleCommentsOnChange.bind(this)}></textArea>
+            <button id='submit-btn'>Submit</button>
+          </div>
         </form>
       </div>
     )

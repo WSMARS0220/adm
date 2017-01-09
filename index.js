@@ -9,6 +9,6 @@ var server = require('./server/server').default
 
 const PORT = process.env.PORT || 3000
 
-server.listen(PORT, function () {
+server.listen(PORT, '0.0.0.0', function () {
   console.log(colors.red('Server listening on: ') + colors.green(PORT))
 })
