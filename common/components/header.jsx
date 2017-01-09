@@ -9,7 +9,7 @@ export default class Header extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <T />
-            <img id='logo' className="navbar-brand" src='http://rzzy0b736k-flywheel.netdna-ssl.com/wp-content/uploads/2015/02/transformers-w-stroke-2.png'/>
+            <img id='logo' className="navbar-brand" src='/img/logo.png'/>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
