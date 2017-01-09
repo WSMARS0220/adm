@@ -18,7 +18,7 @@ export default function renderFullPage (componentHTML) {
           -->
       </head>
       <body>
-        <div id="app">${componentHTML}</div>
+        <div id="root">${componentHTML}</div>
         <script type="application/javascript" src="/bundle.js"></script>
       </body>
     </html>

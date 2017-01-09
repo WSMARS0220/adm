@@ -7,5 +7,5 @@ const routes = routesConfig()
 
 render(
   <Router children={routes} history={browserHistory} />,
-  document.getElementById('app')
+  document.getElementById('root')
 )

@@ -4,7 +4,7 @@ export default class Services extends Component {
   // TODO: services component is here
   render() {
     return (
-      <div id='services-container' className='container'>
+      <div id='services' className='container'>
         <h2 id='services-head-title'>Services</h2>
         <div id='services-div-container'>
           <div className='col-md-3 services-div'>.col-md-3</div>

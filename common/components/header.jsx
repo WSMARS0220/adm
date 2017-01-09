@@ -14,9 +14,9 @@ export default class Header extends Component {
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><a className='header-a' href="#">About</a></li>
-              <li><a className='header-a' href="#">Services</a></li>
-              <li><a className='header-a' href="#">Inquiry</a></li>
+              <li><a className='header-a' href='#banner'>About</a></li>
+              <li><a className='header-a' href='#services'>Services</a></li>
+              <li><a className='header-a' href='#inquiry'>Inquiry</a></li>
             </ul>
           </div>
         </div>
@@ -25,6 +25,7 @@ export default class Header extends Component {
   }
 }
 
+//hamburger menu
 class Toggle extends Component {
 
   constructor (props) {

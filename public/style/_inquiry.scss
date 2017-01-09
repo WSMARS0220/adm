@@ -1,7 +1,7 @@
-$fontColor: #edf2f4;
+$fontColor: #2b2d42;
 $backgroundColor: #2b2d42;
 
-#inquiry-container {
+#inquiry {
   position: relative;
   color: black;
   width: 100%;
@@ -14,7 +14,6 @@ $backgroundColor: #2b2d42;
 #inquiry-head-title {
   width: 100%;
   text-align: center;
-  font-family: Roboto;
   font-weight: bold;
   font-size: 36px;
   padding-bottom: 30px;
@@ -25,6 +24,11 @@ $backgroundColor: #2b2d42;
   width: 100%;
   height: auto;
   min-height: 350px;
+}
+
+.input-label {
+  color: $fontColor;
+  font-weight: 300;
 }
 
 #inquiry-left-contianer {
@@ -50,8 +54,11 @@ $backgroundColor: #2b2d42;
 .info-input {
   width: 100%;
   height: 45px;
-  padding: 5px 5px;
+  color: $fontColor;
+  padding: 5px 10px;
   font-size: 20px;
+  border: 1px solid #000;
+  outline: none;
 }
 
 #inquiry-right-contianer {
@@ -94,11 +101,31 @@ $backgroundColor: #2b2d42;
   float: right;
 }
 
+#file-name-ul {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  padding: 0 0;
+  overflow: scroll;
+}
+
+#delete-btn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 29px;
+  right: 6px;
+  cursor: pointer;
+}
+
 #comments {
   resize: none;
+  color: $fontColor;
   width: 100%;
   height: 150px;
   padding: 5px 10px;
+  outline: none;
 }
 
 #submit-btn {

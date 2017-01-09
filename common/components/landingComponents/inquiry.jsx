@@ -101,6 +101,15 @@ export default class Inquiry extends Component {
     this.setState({comments: e.target.value})
   }
 
+  handleDeleteBtn() {
+    this.setState({
+      files: [],
+      filesName: [],
+      fileSizeCount: 0,
+      uploadMessage: null
+    })
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     console.log(this.state)
@@ -133,55 +142,54 @@ export default class Inquiry extends Component {
 
   renderFileNames() {
     if (this.state.filesName.length > 0 && !this.state.uploadMessage) {
-      console.log(this.state.filesName)
       return (
-        <ul>
+        <ul id='file-name-ul'>
           {this.state.filesName.map((name, idx)=>{
             return <li className='file-name' key={idx}>{name}</li>
           })}
+          <img id='delete-btn' src='/img/Delete.png' onClick={this.handleDeleteBtn.bind(this)}/>
         </ul>
       )
     }
-    console.log('null')
     return null
   }
 
   render() {
     return (
-      <div id='inquiry-container' className='container'>
+      <div id='inquiry' className='container'>
         <h2 id='inquiry-head-title'>Inquiry</h2>
         <form id='inquiry-div-container' onSubmit={this.handleSubmit.bind(this)}>
           <div id='inquiry-left-contianer' className='col-md-6'>
             <div id='inquiry-left-contianer-left'>
-              <h4>Name: </h4>
+              <h4 className='input-label'>Name: </h4>
               <input className='info-input' onChange={this.handleNameOnChange.bind(this)} required/>
-              <h4>Email: </h4>
+              <h4 className='input-label'>Email: </h4>
               <input className='info-input' onChange={this.handleEmailOnChange.bind(this)} required/>
-              <h4>Make: </h4>
+              <h4 className='input-label'>Make: </h4>
               <input className='info-input' onChange={this.handleMakeOnChange.bind(this)} required/>
-              <h4>Color: </h4>
+              <h4 className='input-label'>Color: </h4>
               <input className='info-input' onChange={this.handleColorOnChange.bind(this)} required/>
             </div>
             <div id='inquiry-left-contianer-right'>
-              <h4>Phone: </h4>
+              <h4 className='input-label'>Phone: </h4>
               <input className='info-input' onChange={this.handlePhoneOnChange.bind(this)} required/>
-              <h4>Year: </h4>
+              <h4 className='input-label'>Year: </h4>
               <input className='info-input' onChange={this.handleYearOnChange.bind(this)} required/>
-              <h4>Model: </h4>
+              <h4 className='input-label'>Model: </h4>
               <input className='info-input' onChange={this.handleModelOnChange.bind(this)} required/>
-              <h4>VIN#: </h4>
+              <h4 className='input-label'>VIN#: </h4>
               <input className='info-input' onChange={this.handleVinOnChange.bind(this)} required/>
             </div>
           </div>
           <div id='inquiry-right-contianer' className='col-md-6'>
-            <h4>Files: </h4>
+            <h4 className='input-label'>Files: </h4>
             <input type="file" name="file" id="file" className="inputfile" onClick={()=>{this.setState({uploadMessage: null})}} onChange={this.handleFileUpload.bind(this)} accept="image/*" multiple/>
             <label htmlFor="file">{this.renderFileLabel()}</label>
             <div id="file-name-container">
               {this.renderFileNames()}
               <p>{this.state.uploadMessage}</p>
             </div>
-            <h4>Comments: </h4>
+            <h4 className='input-label'>Comments: </h4>
             <textArea id='comments' onChange={this.handleCommentsOnChange.bind(this)}></textArea>
             <button id='submit-btn'>Submit</button>
           </div>
