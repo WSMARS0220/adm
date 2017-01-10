@@ -2,6 +2,7 @@ import express from 'express'
 import colors from 'colors'
 import basicAuth from 'basic-auth'
 import bodyParser from 'body-parser'
+import userAgent from 'express-useragent'
 // use instead of deprecated createLocation.
 import createMemoryHistory from 'react-router/lib/createMemoryHistory'
 
@@ -40,11 +41,11 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.static('public'))
 app.use(bodyParser.json({limit: '25mb'}));
 app.use(bodyParser.urlencoded({limit: '25mb', extended: true}));
-
+app.use(userAgent.express());
 // email sender
 app.post('/email', handleEmailSend);
 
-app.use(auth, (req, res) => {
+app.get('*', (req, res) => {
   // create location for match to use.
 
   const history = createMemoryHistory()
@@ -53,8 +54,7 @@ app.use(auth, (req, res) => {
   if (res.statusCode == 200) {
     console.log(colors.green('status: 200 ') + colors.red(req.method) + ' ' + colors.cyan(req.url))
   }
-
-  const routes = routesConfig()
+  const routes = routesConfig(req.useragent)
 
   matchFunc(routes, location, res)
 })

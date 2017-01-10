@@ -3,23 +3,50 @@ import onClickOutside from 'react-onclickoutside'
 
 export default class Header extends Component {
 
+  constructor(props) {
+    super(props)
+    console.log('is mobile: ', this.props.userAgent.isMobile)
+    if (this.props.userAgent.isMobile) {
+      this.state = {
+        device: 'mobile'
+      }
+    } else {
+      this.state = {
+        device: 'else'
+      }
+    }
+  }
+
+  handleAboutClick() {
+    $('body').animate({scrollTop: $('#banner').offset().top}, 500);
+  }
+
+  handleServicesClick() {
+    $('body').animate({scrollTop: $('#services').offset().top}, 500);
+  }
+
+  handleInquiryClick() {
+    $('body').animate({scrollTop: $('#inquiry').offset().top}, 500);
+  }
+
+  renderBtnDiv() {
+    if (this.state.device != 'mobile') {
+      return (
+        <div id='header-btn-container'>
+          <button className='header-btn' onClick={this.handleAboutClick}>About</button>
+          <button className='header-btn' onClick={this.handleServicesClick}>Services</button>
+          <button className='header-btn' onClick={this.handleInquiryClick}>Inquiry</button>
+        </div>
+      )
+    }
+    return <T />
+  }
+
   render () {
     return (
-      <nav id='header' className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <T />
-            <img id='logo' className="navbar-brand" src='/img/logo.png'/>
-          </div>
-
-          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav navbar-right">
-              <li><a className='header-a' href='#banner'>About</a></li>
-              <li><a className='header-a' href='#services'>Services</a></li>
-              <li><a className='header-a' href='#inquiry'>Inquiry</a></li>
-            </ul>
-          </div>
-        </div>
+      <nav id='header'>
+        <img id='logo' src='/img/logo.png'/>
+        {this.renderBtnDiv()}
       </nav>
     )
   }
@@ -35,19 +62,6 @@ class Toggle extends Component {
     }
   }
 
-  componentDidMount() {
-    // remove ul when hamburger disappear
-    $(window).resize(()=>{
-      if (this.state.hamburgerToggle){
-        this.setState({hamburgerToggle: false})
-      }
-    })
-  }
-
-  componentWillUnmount() {
-    $(window).off('resize')
-  }
-
   handleClickOutside () {
     this.setState({hamburgerToggle: false})
   }
@@ -60,28 +74,45 @@ class Toggle extends Component {
     }
   }
 
+  handleAboutClick() {
+    this.setState({hamburgerToggle: false})
+    $('body').animate({scrollTop: $('#banner').offset().top}, 500);
+  }
+
+  handleServicesClick() {
+    this.setState({hamburgerToggle: false})
+    $('body').animate({scrollTop: $('#services').offset().top}, 500);
+  }
+
+  handleInquiryClick() {
+    this.setState({hamburgerToggle: false})
+    $('body').animate({scrollTop: $('#inquiry').offset().top}, 500);
+  }
+
   renderList() {
     if (this.state.hamburgerToggle){
       return (
         <ul id='hamburger-toggle-ul'>
-          <a href='#banner'><li id='header-a-h-1' className='header-a-h'>About</li></a>
-          <a href='#services'><li id='header-a-h-2' className='header-a-h'>Services</li></a>
-          <a href='#inquiry'><li id='header-a-h-3' className='header-a-h'>Inquiry</li></a>
+          <li id='header-a-h-1' className='header-a-h' onClick={this.handleAboutClick.bind(this)}>About</li>
+          <li id='header-a-h-2' className='header-a-h' onClick={this.handleServicesClick.bind(this)}>Services</li>
+          <li id='header-a-h-3' className='header-a-h' onClick={this.handleInquiryClick.bind(this)}>Inquiry</li>
         </ul>
       )
     }
     return null
   }
 
+  renderBtn() {
+    if (this.state.hamburgerToggle) {
+      return <button id="cross-btn" onClick={this.hamburgerToggle.bind(this)}>&#735;</button>
+    }
+    return <button id='hambuger-btn' onClick={this.hamburgerToggle.bind(this)}>&#9776;</button>
+  }
+
   render() {
     return (
       <div>
-        <button type="button" className="navbar-toggle collapsed" onClick={this.hamburgerToggle.bind(this)}>
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-        </button>
+        {this.renderBtn()}
         {this.renderList()}
       </div>
     )

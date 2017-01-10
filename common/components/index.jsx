@@ -10,7 +10,7 @@ export default class App extends Component {
     ES6Promise.polyfill();
     return (
       <div id='app'>
-        <Header />
+        <Header userAgent={this.props.route.userAgent}/>
         {this.props.children}
         <Footer />
       </div>

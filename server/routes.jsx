@@ -6,10 +6,10 @@ import App from '../common/components/index'
 import LandingPage from '../common/components/landingPage'
 /* eslint-enable no-unused-vars */
 
-export default function routesConfig () {
+export default function routesConfig (userAgent) {
 
   return (
-    <Route path="/" component={App} >
+    <Route path="/" userAgent={userAgent} component={App} >
       <IndexRoute component={LandingPage} />
     </Route>
   )

@@ -3,7 +3,7 @@ import { RouterContext, match } from 'react-router'// eslint-disable-line no-unu
 import { renderToString } from 'react-dom/server'
 import renderFullPage from './renderFullPage'
 
-export default function matchFunc (routes, location, res) {
+export default function matchFunc (routes, location, res, userAgent) {
   return match({routes, location}, (err, redirectLocation, renderProps) => {
     if (err) {
       console.error(err)

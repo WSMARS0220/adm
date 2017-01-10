@@ -10,11 +10,14 @@ $backgroundColor: #2b2d42;
 
 html, body, #app {
   width: 100%;
+  min-width: 720px;
   height: 100%;
   color: $fontColor;
-  overflow-x: hidden;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+#app {
+  overflow: scroll;
 }
 
 ul {
