@@ -9,20 +9,30 @@ export default function handleEmailSend(req, res) {
       pass: 'james1987'
     },
   })
-  let text = 'Hello world from \n\n' + req.body.name;
+
+  let files = []
+  if (req.body.filesName.length > 0) {
+    const l = req.body.filesName.length
+    for (let i=0; i<l; i++) {
+      files.push({
+        filename: req.body.filesName[i],
+        path: req.body.files[i]
+      })
+    }
+  }
+
+  let subject = req.body.year + ' ' + req.body.make + ' ' + req.body.model + ' ' + req.body.color
+
+  let text = 'Dear ' + req.body.name + ',' + '\n' + '\n' +
+             'Thank you for email us!'
 
   let mailOptions = {
     from: 'admautobodyshop@gmail.com', // sender address
-    to: 'zhang_mingshuo@hotmail.com', // list of receivers
+    to: req.body.email, // list of receivers
     cc: 'admautobodyshop@gmail.com',
-    subject: 'Email Example', // Subject line
+    subject: subject, // Subject line
     text: text, //, // plaintext body
-    attachments: [
-      {
-        filename: 'temp.png',
-        path: req.body.files[0]
-      }
-    ]
+    attachments: files
     // html: '<img src='+req.body.files[0]+'/>' // You can choose to send an HTML body instead
   }
 

@@ -1,7 +1,9 @@
 import React, { Component, Content } from 'react'
 
 export default class Inquiry extends Component {
-  // TODO: email sender here
+  // TODO: loading img
+  // TODO: thumdmail preview
+
   constructor(props) {
     super(props)
     this.state = {

@@ -18,11 +18,11 @@ export default class Header extends Component {
   }
 
   handleAboutClick() {
-    $('body').animate({scrollTop: $('#banner').offset().top}, 500);
+    $('body').animate({scrollTop: $('#banner').offset().top}, 200);
   }
 
   handleServicesClick() {
-    $('body').animate({scrollTop: $('#services').offset().top}, 500);
+    $('body').animate({scrollTop: $('#services').offset().top}, 350);
   }
 
   handleInquiryClick() {
