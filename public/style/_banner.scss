@@ -2,25 +2,25 @@
   width: 100%;
   height: auto;
   background: rgba(0, 0, 0, 0.24);
-}
 
-#banner-img {
-  position: relative;
-  background: rgba(255, 0, 0, 0.52);
-  width: 100%;
-  height: 350px;
-  margin-top: 10px;
-}
+  #banner-img {
+    position: relative;
+    background: rgba(255, 0, 0, 0.52);
+    width: 100%;
+    height: 350px;
+    margin-top: 10px;
+  }
 
-#banner-div-container {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  height: auto;
-  min-height: 140px;
-}
+  #banner-div-container {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: auto;
+    min-height: 140px;
 
-.banner-div {
-  background: grey;
-  height: 140px;
-  border: 1px solid white;
+    .banner-div {
+      background: grey;
+      height: 140px;
+      border: 1px solid white;
+    }
+  }
 }

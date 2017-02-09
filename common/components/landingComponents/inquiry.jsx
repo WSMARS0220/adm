@@ -158,45 +158,58 @@ export default class Inquiry extends Component {
 
   render() {
     return (
+      // *Name, *Phone number, *Email, *Photos (ex Front, Back, damage part, etc), Make, Model, Year, Comments, Files (9 photos)
       <div id='inquiry' className='container'>
         <h2 id='inquiry-head-title'>Inquiry</h2>
         <form id='inquiry-div-container' onSubmit={this.handleSubmit.bind(this)}>
+          <h6 style={style.h6}>* is required</h6>
           <div id='inquiry-left-contianer' className='col-md-6'>
             <div id='inquiry-left-contianer-left'>
-              <h4 className='input-label'>Name: </h4>
+              <h4 className='input-label'>Name<span style={style.span}>*</span>: </h4>
               <input className='info-input' onChange={this.handleNameOnChange.bind(this)} required/>
-              <h4 className='input-label'>Email: </h4>
+              <h4 className='input-label'>Email<span style={style.span}>*</span>: </h4>
               <input className='info-input' onChange={this.handleEmailOnChange.bind(this)} required/>
               <h4 className='input-label'>Make: </h4>
-              <input className='info-input' onChange={this.handleMakeOnChange.bind(this)} required/>
+              <input className='info-input' onChange={this.handleMakeOnChange.bind(this)}/>
               <h4 className='input-label'>Color: </h4>
-              <input className='info-input' onChange={this.handleColorOnChange.bind(this)} required/>
+              <input className='info-input' onChange={this.handleColorOnChange.bind(this)}/>
             </div>
             <div id='inquiry-left-contianer-right'>
-              <h4 className='input-label'>Phone: </h4>
+              <h4 className='input-label'>Phone<span style={style.span}>*</span>: </h4>
               <input className='info-input' onChange={this.handlePhoneOnChange.bind(this)} required/>
               <h4 className='input-label'>Year: </h4>
-              <input className='info-input' onChange={this.handleYearOnChange.bind(this)} required/>
+              <input className='info-input' onChange={this.handleYearOnChange.bind(this)}/>
               <h4 className='input-label'>Model: </h4>
-              <input className='info-input' onChange={this.handleModelOnChange.bind(this)} required/>
+              <input className='info-input' onChange={this.handleModelOnChange.bind(this)}/>
               <h4 className='input-label'>VIN#: </h4>
-              <input className='info-input' onChange={this.handleVinOnChange.bind(this)} required/>
+              <input className='info-input' onChange={this.handleVinOnChange.bind(this)}/>
             </div>
           </div>
           <div id='inquiry-right-contianer' className='col-md-6'>
-            <h4 className='input-label'>Files: </h4>
-            <input type="file" name="file" id="file" className="inputfile" onClick={()=>{this.setState({uploadMessage: null})}} onChange={this.handleFileUpload.bind(this)} accept="image/*" multiple/>
+            <h4 className='input-label'>Files<span style={style.span}>*</span>: </h4>
+            <input type="file" name="file" id="file" className="inputfile" onClick={()=>{this.setState({uploadMessage: null})}} onChange={this.handleFileUpload.bind(this)} accept="image/*" multiple required/>
             <label htmlFor="file">{this.renderFileLabel()}</label>
             <div id="file-name-container">
               {this.renderFileNames()}
               <p>{this.state.uploadMessage}</p>
             </div>
             <h4 className='input-label'>Comments: </h4>
-            <textArea id='comments' onChange={this.handleCommentsOnChange.bind(this)}></textArea>
+            <textArea id='comments' placeholder='More details' onChange={this.handleCommentsOnChange.bind(this)}></textArea>
             <button id='submit-btn'>Submit</button>
           </div>
         </form>
       </div>
     )
+  }
+}
+
+const style = {
+  h6: {
+    fontSize: '15px',
+    padding: '0px 15px',
+    color: 'red',
+  },
+  span: {
+    color: 'red',
   }
 }

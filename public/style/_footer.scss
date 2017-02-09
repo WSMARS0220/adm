@@ -7,39 +7,39 @@ $backgroundColor: #2b2d42;
   height: auto;
   min-height: 150px;
   padding: 20px 60px;
-}
 
-.footer-div {
-  background: $backgroundColor;
-  height: 110px;
-}
+  .footer-div {
+    background: $backgroundColor;
+    height: 110px;
+  }
 
-#contact-info {
+  #contact-info {
 
-}
+  }
 
-#hours {
-  height: 80px;
-}
+  #hours {
+    height: 80px;
+  }
 
-#social-media {
-  height: 85px;
-}
+  #social-media {
+    height: 85px;
 
-#facebook, #ins {
-  width: 40px;
-  height: 40px;
-  float: left;
-  cursor: pointer;
-}
+    #facebook, #ins {
+      width: 40px;
+      height: 40px;
+      float: left;
+      cursor: pointer;
+    }
 
-#facebook {
-  background: url('/img/facebook_icon.png');
-  background-size: 100%;
-  margin-right: 10px;
-}
+    #facebook {
+      background: url('/img/facebook_icon.png');
+      background-size: 100%;
+      margin-right: 10px;
+    }
 
-#ins {
-  background: url('/img/ins_icon.png');
-  background-size: 100%;
+    #ins {
+      background: url('/img/ins_icon.png');
+      background-size: 100%;
+    }
+  }
 }

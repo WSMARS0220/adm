@@ -7,13 +7,13 @@ export default class Footer extends Component {
         <div id='contact-info' className='col-sm-4 footer-div'>
           <h4>Contact Information</h4>
           <h6><span style={{fontWeight:'bold'}}>Address: </span>7725 Enterprise Dr, Newark, CA 94560</h6>
-          <h6><span style={{fontWeight:'bold'}}>Phone: </span>(xxx)xxx-xxxx</h6>
-          <h6><span style={{fontWeight:'bold'}}>Email: </span>xxxxxx@xxxx.com</h6>
+          <h6><span style={{fontWeight:'bold'}}>Phone: </span>(408) 628-2387</h6>
+          <h6><span style={{fontWeight:'bold'}}>Email: </span> admautobodyshop@gmail.com</h6>
         </div>
         <div id='hours' className='col-sm-4 footer-div'>
           <h4>Business Hour</h4>
-          <h6>Mon-Fri: xx:xx - xx:xx</h6>
-          <h6>Sat-Sun: xx:xx - xx:xx</h6>
+          <h6>Mon-Sun: 08:30AM - 06:30PM</h6>
+          <h6>Open 7 Days</h6>
         </div>
         <div id='social-media' className='col-sm-4 footer-div'>
           <h4>Social Media</h4>

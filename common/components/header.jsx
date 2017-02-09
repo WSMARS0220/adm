@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import onClickOutside from 'react-onclickoutside'
+import { browserHistory } from 'react-router'
 
 export default class Header extends Component {
 
@@ -17,25 +18,41 @@ export default class Header extends Component {
     }
   }
 
+  handleLogoClick() {
+    browserHistory.push('/')
+  }
+
   handleAboutClick() {
-    $('body').animate({scrollTop: $('#banner').offset().top}, 200);
+    if (this.props.location.pathname != '/') {
+      browserHistory.push('/')
+    } else {
+      $('body').animate({scrollTop: $('#banner').offset().top}, 200);
+    }
   }
 
   handleServicesClick() {
-    $('body').animate({scrollTop: $('#services').offset().top}, 350);
+    if (this.props.location.pathname != '/') {
+      browserHistory.push('/')
+    } else {
+      $('body').animate({scrollTop: $('#services').offset().top}, 350);
+    }
   }
 
   handleInquiryClick() {
-    $('body').animate({scrollTop: $('#inquiry').offset().top}, 500);
+    if (this.props.location.pathname != '/') {
+      browserHistory.push('/')
+    } else {
+      $('body').animate({scrollTop: $('#inquiry').offset().top}, 500);
+    }
   }
 
   renderBtnDiv() {
     if (this.state.device != 'mobile') {
       return (
         <div id='header-btn-container'>
-          <button className='header-btn' onClick={this.handleAboutClick}>About</button>
-          <button className='header-btn' onClick={this.handleServicesClick}>Services</button>
-          <button className='header-btn' onClick={this.handleInquiryClick}>Inquiry</button>
+          <button className='header-btn' onClick={this.handleAboutClick.bind(this)}>About</button>
+          <button className='header-btn' onClick={this.handleServicesClick.bind(this)}>Services</button>
+          <button className='header-btn' onClick={this.handleInquiryClick.bind(this)}>Inquiry</button>
         </div>
       )
     }
@@ -45,7 +62,7 @@ export default class Header extends Component {
   render () {
     return (
       <nav id='header'>
-        <img id='logo' src='/img/logo.png'/>
+        <img id='logo' src='/img/logo.png' onClick={this.handleLogoClick}/>
         {this.renderBtnDiv()}
       </nav>
     )

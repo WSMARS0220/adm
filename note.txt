@@ -1,0 +1,5 @@
+1. Services: copy from http://www.kimsautobodysj.com/
+2. Banner: copy from http://www.kimsautobodysj.com/
+3. Require input: name, photos(suggests: full side or front of car, lisence plate, and damage areas), email, Phone#,
+4. Email: title by customer name
+5. files: show thumdmail limited by 9
