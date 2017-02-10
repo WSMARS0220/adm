@@ -1,6 +1,7 @@
 'use strict'
 
 // allows us to use .jsx
+require('newrelic')
 require('babel-core/register')({})
 require('babel-polyfill')
 var colors = require('colors')

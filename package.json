@@ -30,6 +30,7 @@
     "express": "^4.14.0",
     "express-useragent": "^1.0.6",
     "moment": "^2.16.0",
+    "newrelic": "^1.37.0",
     "nodemailer": "^2.7.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
