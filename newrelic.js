@@ -10,7 +10,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['adm-auto-body', 'adm', 'always_do_more'],
+  app_name: ['adm-auto-body'],
   /**
    * Your New Relic license key.
    */
