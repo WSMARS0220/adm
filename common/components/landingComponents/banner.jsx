@@ -8,8 +8,10 @@ export default class Banner extends Component {
     this.state = {
       index: 0
     }
-    this.imgSet1 = ['/img/banner/1.jpg', '/img/banner/2.jpg']
-    this.imgSet2 = ['/img/banner/3.jpg', '/img/banner/4.jpg']
+    this.imgSet1 = ['http://res.cloudinary.com/ddjurvqs8/image/upload/v1489278042/1_faa8ez.jpg',
+                    'http://res.cloudinary.com/ddjurvqs8/image/upload/v1489278042/2_nthf1k.jpg']
+    this.imgSet2 = ['http://res.cloudinary.com/ddjurvqs8/image/upload/v1489278042/3_teqplp.jpg',
+                    'http://res.cloudinary.com/ddjurvqs8/image/upload/v1489278042/4_v3hqbp.jpg']
   }
 
   componentDidMount() {
