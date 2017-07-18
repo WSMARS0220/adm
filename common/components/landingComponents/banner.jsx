@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 export default class Banner extends Component {
 
@@ -60,10 +60,22 @@ export default class Banner extends Component {
           {this.renderImage()}
         </ReactCSSTransitionGroup>
         <div id='banner-div-container'>
-          <div className='col-md-3 banner-div'>.col-md-3</div>
-          <div className='col-md-3 banner-div'>.col-md-3</div>
-          <div className='col-md-3 banner-div'>.col-md-3</div>
-          <div className='col-md-3 banner-div'>.col-md-3</div>
+          <div className='col-md-3 banner-div'>
+            <h4>Professional Consultation</h4>
+            <p>Call to setup an appointment.</p>
+          </div>
+          <div className='col-md-3 banner-div'>
+            <h4>Full Service Collision Repair</h4>
+            <p>We work with all insurance companies. We will provide support through every step of your insurance claim.</p>
+          </div>
+          <div className='col-md-3 banner-div'>
+            <h4>Damage Assessment</h4>
+            <p>Our certified trained technicians will assess all damages on your vehicle.</p>
+          </div>
+          <div className='col-md-3 banner-div'>
+            <h4>Collision Repair and Refinish</h4>
+            <p>Every vehicle will be repaired and refinished to factory standards</p>
+          </div>
         </div>
       </div>
     )

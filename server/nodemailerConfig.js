@@ -23,7 +23,9 @@ export default function handleEmailSend(req, res) {
 
   let subject = req.body.year + ' ' + req.body.make + ' ' + req.body.model + ' ' + req.body.color
 
-  let text = 'Dear ' + req.body.name + ',' + '\n' + '\n' +
+  let text = 'Dear ' + req.body.name + ',' + '\n' +
+             'We will contact you soon!' + '\n' + '\n' +
+             'ADM Body Shop' + '\n' +
              'Thank you for email us!'
 
   let mailOptions = {
