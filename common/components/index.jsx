@@ -5,6 +5,11 @@ import Header from './header';
 import Footer from './footer'
 
 export default class App extends Component {
+
+  componentDidMount () {
+    mixpanel.track('webOpened')
+  }
+
   render() {
     // for ie 11 ...
     ES6Promise.polyfill();
